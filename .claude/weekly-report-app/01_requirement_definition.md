@@ -519,8 +519,9 @@
 | **情報漏えい（機密流出）** | RBAC、マスキング（正規表現+LLM）、監査ログ、LLM送信データ最小化 |
 | **プロンプトインジェクション** | 入力サニタイズ、システムプロンプト固定、出力検査 |
 | **運用負荷（管理者疲弊）** | 現場プロフィール最小項目、テンプレ固定、管理画面簡素化 |
-| **LLM API障害** | タイムアウト設定、再試行、キュー、障害時の手動入力フォールバック |
+| **LLM推論サーバー障害** | タイムアウト設定、再試行、キュー、障害時の手動入力フォールバック、冗長化構成 |
 | **評価の不公平感** | ルーブリック明示、評価理由コメント必須化（運用ルール） |
+| **LLMモデルの性能不足** | 複数モデルの評価・切替、プロンプトエンジニアリング、ファインチューニング |
 
 ---
 
@@ -568,7 +569,9 @@
 | **バックエンド** | Node.js(Express/Fastify) / Python(FastAPI/Django) / Go |
 | **DB** | PostgreSQL / MySQL |
 | **認証** | JWT / OAuth2.0 |
-| **LLM** | OpenAI GPT-4o / Claude / Azure OpenAI |
+| **LLM** | OSS LLM (Llama 3.1 70B / Qwen 2.5 72B / Mistral Large 2) |
+| **推論エンジン** | vLLM / Ollama / TGI (Text Generation Inference) |
+| **推論インフラ** | AWS SageMaker / Azure ML / GCP Vertex AI / GPU EC2 / オンプレGPUサーバー |
 | **PDF生成** | Puppeteer / wkhtmltopdf / ReportLab(Python) |
 | **監査ログ** | ElasticSearch / 専用ログテーブル |
 | **インフラ** | AWS(EC2/RDS/S3) / GCP / Azure / オンプレ |
